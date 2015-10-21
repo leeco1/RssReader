@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4vH-r4-frt">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--MyFeeds-->
+        <scene sceneID="f5T-Av-puP">
+            <objects>
+                <tableViewController id="Bfm-kp-r3Z" customClass="TableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cus-8J-WcX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Avp-VW-hdq">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Avp-VW-hdq" id="Jpq-Rz-3xa">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="PoH-pp-uoD" kind="show" identifier="viewFeed" id="DIF-p4-YSE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bfm-kp-r3Z" id="c99-7j-lQR"/>
+                            <outlet property="delegate" destination="Bfm-kp-r3Z" id="EzJ-Pe-Lqe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="MyFeeds" id="VMs-Fa-kY4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="56P-Hj-eoE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="47"/>
+        </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="Ufl-22-aui">
+            <objects>
+                <viewController id="PoH-pp-uoD" customClass="FeedViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5D6-0t-7aZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="B8b-c9-6Tt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f3w-5s-OQt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vo4-7N-5Js">
+                                <rect key="frame" x="290" y="368" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <webView contentMode="scaleAspectFit" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Piz-4p-J5c">
+                                <rect key="frame" x="0.0" y="0.0" width="700" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="vo4-7N-5Js" id="jlI-bp-34G"/>
+                        <outlet property="webView" destination="Piz-4p-J5c" id="9N3-ET-l4B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQ8-6e-zng" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2251" y="-225"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6gP-Xx-RP1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4vH-r4-frt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zh6-nR-hQc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bfm-kp-r3Z" kind="relationship" relationship="rootViewController" id="FvK-jJ-GyV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BIQ-DT-r2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="437" y="53"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+</document>
