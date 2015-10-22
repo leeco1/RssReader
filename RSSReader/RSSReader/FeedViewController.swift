@@ -10,7 +10,7 @@ import UIKit
 
 class FeedViewController: UIViewController , UIWebViewDelegate {
 
-    
+   
     @IBOutlet weak var webView: UIWebView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -24,10 +24,14 @@ class FeedViewController: UIViewController , UIWebViewDelegate {
         let request: NSURLRequest = NSURLRequest(URL: url)
         webView.loadRequest(request)
         webView.delegate = self
-        webView.frame = self.view.bounds
+       // self.webView.frame = self.view.bounds
+        //self.webView.scalesPageToFit = true
+        //self.webView.contentMode = UIViewContentMode.ScaleToFill
+        
         webView.scalesPageToFit = true
-       
-       
+        
+        webView.scrollView.flashScrollIndicators()
+     
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,24 +42,25 @@ class FeedViewController: UIViewController , UIWebViewDelegate {
     //Mark - UIWebViewdelegate functions implementation in order to show and hide Activity Indicator View:
     
     func webViewDidStartLoad(webView: UIWebView) {
-       activityIndicator.hidesWhenStopped = false
-        activityIndicator.hidden = false
-        activityIndicator.startAnimating()
+        //activityIndicator.startAnimating()
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.stopAnimating()
+      
+      //  activityIndicator.stopAnimating()
+        //activityIndicator.hidesWhenStopped = true
+
+        activityIndicator.hidden = true
     }
     
-    
+   /*
     func webView(webView: UIWebView,
         didFailLoadWithError error: NSError){
             let alert:UIAlertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             activityIndicator.hidden = true
-    }
+    }*/
     
     /*
     // MARK: - Navigation

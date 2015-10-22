@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RssFeed {
+class RssFeed : NSObject {
     
     var rssFeedTitle: String = String()
     var rssFeedLink: String = String()

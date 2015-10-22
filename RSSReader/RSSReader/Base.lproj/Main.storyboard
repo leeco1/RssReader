@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4vH-r4-frt">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--MyFeeds-->
@@ -28,7 +29,7 @@
                             <outlet property="delegate" destination="Bfm-kp-r3Z" id="EzJ-Pe-Lqe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="MyFeeds" id="VMs-Fa-kY4"/>
+                    <navigationItem key="navigationItem" title="MyFeeds" id="VMs-Fa-kY4" colorLabel="IBBuiltInLabel-Red"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56P-Hj-eoE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,24 +47,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vo4-7N-5Js">
-                                <rect key="frame" x="290" y="368" width="20" height="20"/>
-                            </activityIndicatorView>
-                            <webView contentMode="scaleAspectFit" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Piz-4p-J5c">
-                                <rect key="frame" x="0.0" y="0.0" width="700" height="600"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPD-q7-wm2">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yHm-yl-fKf">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yHm-yl-fKf" firstAttribute="centerX" secondItem="aPD-q7-wm2" secondAttribute="centerX" id="1bo-aE-a6y"/>
+                            <constraint firstItem="aPD-q7-wm2" firstAttribute="leading" secondItem="f3w-5s-OQt" secondAttribute="leading" id="4yM-6K-WB2"/>
+                            <constraint firstAttribute="trailing" secondItem="aPD-q7-wm2" secondAttribute="trailing" id="52E-HD-PPo"/>
+                            <constraint firstItem="yHm-yl-fKf" firstAttribute="top" secondItem="5D6-0t-7aZ" secondAttribute="bottom" constant="217" id="CfO-zE-CT5"/>
+                            <constraint firstItem="aPD-q7-wm2" firstAttribute="top" secondItem="5D6-0t-7aZ" secondAttribute="bottom" id="YQ8-nr-eR4"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="aPD-q7-wm2" secondAttribute="bottom" constant="-64" id="YkU-6Y-IiE"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="aPD-q7-wm2"/>
+                                <exclude reference="yHm-yl-fKf"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4yM-6K-WB2"/>
+                                <exclude reference="52E-HD-PPo"/>
+                                <exclude reference="YQ8-nr-eR4"/>
+                                <exclude reference="YkU-6Y-IiE"/>
+                                <exclude reference="1bo-aE-a6y"/>
+                                <exclude reference="CfO-zE-CT5"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="aPD-q7-wm2"/>
+                                <include reference="yHm-yl-fKf"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="4yM-6K-WB2"/>
+                                <include reference="52E-HD-PPo"/>
+                                <include reference="YQ8-nr-eR4"/>
+                                <include reference="YkU-6Y-IiE"/>
+                                <include reference="1bo-aE-a6y"/>
+                                <include reference="CfO-zE-CT5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="vo4-7N-5Js" id="jlI-bp-34G"/>
-                        <outlet property="webView" destination="Piz-4p-J5c" id="9N3-ET-l4B"/>
+                        <outlet property="activityIndicator" destination="yHm-yl-fKf" id="RFR-Yy-uOZ"/>
+                        <outlet property="webView" destination="aPD-q7-wm2" id="NnZ-lb-E1O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQ8-6e-zng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2251" y="-225"/>
+            <point key="canvasLocation" x="2250" y="-225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6gP-Xx-RP1">
@@ -81,8 +120,8 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIQ-DT-r2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="437" y="53"/>
+            <point key="canvasLocation" x="655" y="47"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

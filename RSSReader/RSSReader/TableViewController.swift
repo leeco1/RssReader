@@ -20,7 +20,15 @@ class TableViewController: UITableViewController , NSXMLParserDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = NSURL(string: "http://www.geektime.co.il/feed")
+   
+        //let url = NSURL(string: "http://www.geektime.co.il/feed")
+       // let url = NSURL(string: "https://www.theguardian.com/info/developer-blog/rss")
+        
+        let url = NSURL(string: "http://news.stanford.edu/rss/index.xml")
+       
+        
+        
+        
         parser = NSXMLParser(contentsOfURL: url)!
         parser.delegate = self
         parser.parse()
@@ -42,7 +50,6 @@ class TableViewController: UITableViewController , NSXMLParserDelegate {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      
         return rssFeeds.count
     }
     
