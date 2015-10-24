@@ -1,6 +1,7 @@
 # RssReader
 
 Rss Reader 
-Read RSS file 
-Present feeds on a list  
-click on feed will open feed web page 
+Swift Xcode Version 6.4  
+The apllication Read a fixed RSS file from url link  
+Present the feeds on a list  
+Click on a feed will open the feed web page 
